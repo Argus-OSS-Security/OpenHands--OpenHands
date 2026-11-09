@@ -4,12 +4,13 @@ name: release
 # "release PR" that, on merge, bumps package.json + tags vX.Y.Z + creates the
 # Release; that release drives the publish workflows via `release: published`.
 # Config: release-please-config.json, .release-please-manifest.json, .github/release.yml.
-on:
-  push:
-    branches:
-      - main
-      - 'release/**'   # maintenance branches; the release is scoped to this branch
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - main
+#       - 'release/**'   # maintenance branches; the release is scoped to this branch
+# 
 jobs:
   # release-please only creates a tag/Release on the release-PR-merge push, which
   # lands as a squash commit `chore(<scope>): release <version>`. The "Release Tag"

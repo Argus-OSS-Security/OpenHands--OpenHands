@@ -16,19 +16,20 @@ name: Desktop (Linux)
 # (FUSE required; FUSE 3 distros need the `--appimage-extract-and-run`
 # fallback or libfuse2 installed). The deb targets Debian/Ubuntu; Fedora and
 # other rpm distros use the AppImage.
-on:
-  workflow_dispatch:
-  pull_request:
-    paths:
-      - .github/workflows/desktop-linux.yml
-      - electron/**
-      - electron-builder.config.mjs
-      - scripts/download-arch-utils.mjs
-      - scripts/download-uv.mjs
-      - scripts/download-node.mjs
-  release:
-    types: [published]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   pull_request:
+#     paths:
+#       - .github/workflows/desktop-linux.yml
+#       - electron/**
+#       - electron-builder.config.mjs
+#       - scripts/download-arch-utils.mjs
+#       - scripts/download-uv.mjs
+#       - scripts/download-node.mjs
+#   release:
+#     types: [published]
+# 
 concurrency:
   group: desktop-linux-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}

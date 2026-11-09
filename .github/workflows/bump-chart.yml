@@ -9,11 +9,12 @@
 # tag-triggered "Docker" runs and bumps the chart.
 name: Bump chart image tag
 
-on:
-  workflow_run:
-    workflows: ["Docker"]
-    types: [completed]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows: ["Docker"]
+#     types: [completed]
+# 
 jobs:
   # "Docker" runs on branch pushes, PRs and tag pushes, but only a release-please
   # release pushes a vX.Y.Z tag. Filter to successful tag-push runs and derive

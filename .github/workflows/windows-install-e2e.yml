@@ -13,12 +13,13 @@ name: Windows npm install E2E
 # .release-please-manifest.json) on every update, plus manual dispatch.
 # To check a fix branch, dispatch it on that branch.
 
-on:
-  pull_request:
-    paths:
-      - .release-please-manifest.json
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - .release-please-manifest.json
+#   workflow_dispatch:
+# 
 concurrency:
   group: windows-install-e2e-${{ github.ref }}
   cancel-in-progress: true

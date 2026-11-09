@@ -1,18 +1,19 @@
 name: CI
 
-on:
-  pull_request:
-  push:
-    branches:
-      - main
-      - "rel-*"
-      - "release/**"
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: PR number to run live QA against when running manually.
-        required: true
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#   push:
+#     branches:
+#       - main
+#       - "rel-*"
+#       - "release/**"
+#   workflow_dispatch:
+#     inputs:
+#       pr_number:
+#         description: PR number to run live QA against when running manually.
+#         required: true
+# 
 concurrency:
   # Push runs get a per-COMMIT group and never cancel: the "Release Tag" ruleset
   # requires `test-and-build (ubuntu)` to be green on the exact commit release-please

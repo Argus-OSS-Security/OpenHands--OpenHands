@@ -19,10 +19,11 @@ name: Verify skill isolation
 # the other way around. A fix PR is verified against the skill as it stands
 # on the base branch; update the skill in a follow-up PR after the fix lands.
 
-on:
-    pull_request_target:
-        types: [opened, synchronize, reopened, edited, ready_for_review]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     pull_request_target:
+#         types: [opened, synchronize, reopened, edited, ready_for_review]
+# 
 permissions:
     contents: read
     pull-requests: read

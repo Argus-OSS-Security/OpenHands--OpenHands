@@ -8,20 +8,21 @@ name: Mock-LLM Docker E2E Tests
 #      completes on main. The image is already built/pushed to GHCR.
 #   2. workflow_dispatch — manual trigger with a custom image tag.
 
-on:
-  workflow_run:
-    workflows: ["Docker"]
-    types: [completed]
-    branches: [main]
-  workflow_dispatch:
-    inputs:
-      docker_image:
-        description: "Docker image to test (e.g., ghcr.io/openhands/agent-canvas:sha-abc1234-amd64)"
-        type: string
-        default: ""
-
-# Concurrency: deduplicate runs for the same logical trigger. Docker workflow
-# completions are keyed by branch; manual runs use their selected ref.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_run:
+#     workflows: ["Docker"]
+#     types: [completed]
+#     branches: [main]
+#   workflow_dispatch:
+#     inputs:
+#       docker_image:
+#         description: "Docker image to test (e.g., ghcr.io/openhands/agent-canvas:sha-abc1234-amd64)"
+#         type: string
+#         default: ""
+# 
+# # Concurrency: deduplicate runs for the same logical trigger. Docker workflow
+# # completions are keyed by branch; manual runs use their selected ref.
 concurrency:
   group: >-
     mock-llm-docker-e2e-${{

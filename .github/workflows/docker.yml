@@ -1,29 +1,30 @@
 ---
 name: Docker
 
-on:
-  push:
-    branches: [main]
-    tags:
-      - "v*"
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-    inputs:
-      agent_server_image:
-        description: Agent Server base image (ghcr.io/openhands/agent-server:TAG)
-        type: string
-        default: ""
-      automation_version:
-        description: Automation server version (pip)
-        type: string
-        default: ""
-      image:
-        description: GHCR image name
-        type: string
-        default: ghcr.io/openhands/agent-canvas
-
-# Cancel redundant runs for the same branch/PR.
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [main]
+#     tags:
+#       - "v*"
+#   pull_request:
+#     branches: [main]
+#   workflow_dispatch:
+#     inputs:
+#       agent_server_image:
+#         description: Agent Server base image (ghcr.io/openhands/agent-server:TAG)
+#         type: string
+#         default: ""
+#       automation_version:
+#         description: Automation server version (pip)
+#         type: string
+#         default: ""
+#       image:
+#         description: GHCR image name
+#         type: string
+#         default: ghcr.io/openhands/agent-canvas
+# 
+# # Cancel redundant runs for the same branch/PR.
 concurrency:
   group: ${{ github.workflow }}-${{ (github.head_ref && github.ref) || github.run_id }}
   cancel-in-progress: true

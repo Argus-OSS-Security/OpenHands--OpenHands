@@ -1,16 +1,17 @@
 name: Publish to npm
 
-on:
-  push:
-    tags:
-      - 'v*'
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'Release tag to publish (e.g. v1.0.0-alpha.8)'
-        required: true
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     tags:
+#       - 'v*'
+#   workflow_dispatch:
+#     inputs:
+#       tag:
+#         description: 'Release tag to publish (e.g. v1.0.0-alpha.8)'
+#         required: true
+#         type: string
+# 
 concurrency:
   group: npm-publish-${{ inputs.tag || github.ref }}
   cancel-in-progress: false

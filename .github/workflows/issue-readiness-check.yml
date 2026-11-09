@@ -4,10 +4,11 @@ name: Ready-for-dev Label Policy
 # The issue-triage automation and repository writers may grant ready-for-dev.
 # Labels from any other actor are removed.
 
-on:
-    issues:
-        types: [labeled]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     issues:
+#         types: [labeled]
+# 
 concurrency:
     group: ready-for-dev-policy-${{ github.event.issue.number }}
     cancel-in-progress: false

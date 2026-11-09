@@ -25,19 +25,20 @@ name: Desktop (macOS)
 #
 # Intel-leg removal date: macos-15-intel is available until August 2027, after
 # which GitHub drops x86_64 macOS support entirely and this leg must go.
-on:
-  workflow_dispatch:
-  pull_request:
-    paths:
-      - .github/workflows/desktop-macos.yml
-      - electron/**
-      - electron-builder.config.mjs
-      - scripts/download-arch-utils.mjs
-      - scripts/download-uv.mjs
-      - scripts/download-node.mjs
-  release:
-    types: [published]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   pull_request:
+#     paths:
+#       - .github/workflows/desktop-macos.yml
+#       - electron/**
+#       - electron-builder.config.mjs
+#       - scripts/download-arch-utils.mjs
+#       - scripts/download-uv.mjs
+#       - scripts/download-node.mjs
+#   release:
+#     types: [published]
+# 
 concurrency:
   group: desktop-macos-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}

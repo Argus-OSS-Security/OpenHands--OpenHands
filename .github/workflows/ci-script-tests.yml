@@ -5,17 +5,18 @@ name: CI Script Tests
 # the issue-readiness and PR-description gates. This catches regressions in the
 # checking logic whenever those scripts are modified.
 
-on:
-    pull_request:
-        paths:
-            - ".github/scripts/**"
-            - ".github/workflows/ci-script-tests.yml"
-    push:
-        branches: [main]
-        paths:
-            - ".github/scripts/**"
-            - ".github/workflows/ci-script-tests.yml"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     pull_request:
+#         paths:
+#             - ".github/scripts/**"
+#             - ".github/workflows/ci-script-tests.yml"
+#     push:
+#         branches: [main]
+#         paths:
+#             - ".github/scripts/**"
+#             - ".github/workflows/ci-script-tests.yml"
+# 
 permissions:
     contents: read
 

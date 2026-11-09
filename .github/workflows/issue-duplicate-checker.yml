@@ -1,32 +1,33 @@
 ---
 name: Issue Duplicate Check via OpenHands Cloud
 
-on:
-    issues:
-        types: [opened]
-    schedule:
-        - cron: 0 9 * * *
-    workflow_dispatch:
-        inputs:
-            mode:
-                description: Which workflow path to run
-                required: true
-                type: choice
-                options:
-                    - smoke-clone
-                    - issue-check
-                    - auto-close
-                default: smoke-clone
-            issue_number:
-                description: Existing issue number to analyze when mode is issue-check
-                required: false
-                type: number
-            close_after_days:
-                description: Days to wait before auto-closing duplicate candidates in auto-close mode
-                required: false
-                type: number
-                default: 3
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#     issues:
+#         types: [opened]
+#     schedule:
+#         - cron: 0 9 * * *
+#     workflow_dispatch:
+#         inputs:
+#             mode:
+#                 description: Which workflow path to run
+#                 required: true
+#                 type: choice
+#                 options:
+#                     - smoke-clone
+#                     - issue-check
+#                     - auto-close
+#                 default: smoke-clone
+#             issue_number:
+#                 description: Existing issue number to analyze when mode is issue-check
+#                 required: false
+#                 type: number
+#             close_after_days:
+#                 description: Days to wait before auto-closing duplicate candidates in auto-close mode
+#                 required: false
+#                 type: number
+#                 default: 3
+# 
 permissions:
     contents: read
     issues: write
